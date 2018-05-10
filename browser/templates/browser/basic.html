@@ -1,0 +1,12 @@
+{% extends "browser/header.html" %}
+
+{% block content %}
+
+<main role ='main' class="col-md-9 ml-sm-auto col-lg-10 px-4">
+
+
+	{% for p in pieces %}
+		<p>{{p}}</p>
+	{% endfor %}
+</main>
+{% endblock %}
