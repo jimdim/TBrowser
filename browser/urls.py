@@ -8,5 +8,4 @@ urlpatterns = [
     path('profile/', views.profile, name='profile'),
     path('settings/', views.settings, name='settings'),
     # path('browser/', include('browser.urls')),
-    path('admin/', admin.site.urls),
 ]
