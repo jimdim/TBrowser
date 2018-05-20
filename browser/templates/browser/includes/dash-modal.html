@@ -1,0 +1,18 @@
+{% load staticfiles %}
+
+<div class="modal fade" id="dash-modal-{{ dashboard.id }}">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				{{ dashboard.displayName }}
+			</div>
+			<div class="modal-body">
+				<img src="{{ dashboard.previewImgPath.url }}" class="responsive-img mx-auto d-block col-sm" style=' border:0px solid #021a40;' alt="dashboard">{{ dashboard.textExtract }}
+			</div>
+			<div class="modal-footer">
+				<a href="http://{{ dashboard.url }}">Open in Tableau</a>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>				
+		</div>
+	</div>
+</div>
