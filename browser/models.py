@@ -9,7 +9,7 @@ class User(models.Model):
 
 class Dashboard(models.Model):
     displayName = models.CharField(max_length=128)
-    previewImgPath = models.FilePathField()
+    previewImgPath = models.ImageField(upload_to='dash')
     textExtract = models.CharField(max_length=255)
     url = models.URLField()
 
