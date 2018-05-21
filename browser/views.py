@@ -20,10 +20,10 @@ class IndexView(generic.ListView):
 		cat_row4 = interest_list[2].categoryUMC_id
 		cat_row5 = interest_list[3].categoryUMC_id
 
-		r2_dash_list = Dashboard.objects.filter(dashmatchedcategory__categoryDMC=cat_row2).order_by("dashmatchedcategory__scoreDMC")
-		r3_dash_list = Dashboard.objects.filter(dashmatchedcategory__categoryDMC=cat_row3).order_by("dashmatchedcategory__scoreDMC")
-		r4_dash_list = Dashboard.objects.filter(dashmatchedcategory__categoryDMC=cat_row4).order_by("dashmatchedcategory__scoreDMC")
-		r5_dash_list = Dashboard.objects.filter(dashmatchedcategory__categoryDMC=cat_row5).order_by("dashmatchedcategory__scoreDMC")
+		r2_dash_list = Dashboard.objects.filter(dashmatchedcategory__categoryDMC=cat_row2).order_by("-dashmatchedcategory__scoreDMC")
+		r3_dash_list = Dashboard.objects.filter(dashmatchedcategory__categoryDMC=cat_row3).order_by("-dashmatchedcategory__scoreDMC")
+		r4_dash_list = Dashboard.objects.filter(dashmatchedcategory__categoryDMC=cat_row4).order_by("-dashmatchedcategory__scoreDMC")
+		r5_dash_list = Dashboard.objects.filter(dashmatchedcategory__categoryDMC=cat_row5).order_by("-dashmatchedcategory__scoreDMC")
 
 		row1 = [];	row2 = []; row3 = []; row4 = []; row5 = []; i = 0
 
@@ -65,9 +65,9 @@ class IndexView(generic.ListView):
 					row5.append(dash_list[i])
 				i+=1
 
-		rows_list = [row1,row2,row3,row4,row5]	
+		return_obj	= [{'row':row1, 'row_name':'Pinned Dashboards'}, {'row':row2, 'row_name':cat_row2}, {'row':row3, 'row_name':cat_row3}, {'row':row4, 'row_name':cat_row4}, {'row':row5, 'row_name':cat_row5}]
 
-		return rows_list		
+		return return_obj		
 
 def index(request):
 	return render(request, 'browser/home.html')

@@ -5,7 +5,11 @@
 <main role ='main' class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
 	{% for row in object_list %}
+
+		<p class="row-title"><b>{{row.row_name}}</b></p>
+
 		{% include "browser\includes\carousel.html" %}
+	
 	{% endfor %}
 
 </main>
